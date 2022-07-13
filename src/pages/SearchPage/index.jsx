@@ -1,17 +1,16 @@
 import React, {useState, useEffect} from "react";
-import axios from 'axios';
 
 import "./index.css";
 
 const SearchPage = () => {
     const [ inputValue, setInputValue ] = useState("");
     const [ submitValue, setSubmitValue ] = useState("");
-    const [ userData, setUserData ] = useState=([]);
-    
+    const [ userData, setUserData ] = useState=("");
+        
     useEffect(() => {
         async function fetchUserData() {
             try {
-                const result = await axios.get('https://api.github.com/users/{username}/', {
+                const result = await fetch('https://api.github.com/users/{username}/', {
                   username: 'USERNAME'
                 })
                 setUserData(result.data);

@@ -7,7 +7,7 @@ import { loadRepos } from '../../actions'
 const IndexPage = () => {
     const allRepos = useSelector(state=>state.repos);
     const error = useSelector(state=>state.error);
-    const [ ownerRepo, setOwnerRepo ] = useState({});
+    const [ ownerRepo, setOwnerRepo ] = useState([]);
     const dispatch = useDispatch();
     const search = searchTerm => dispatch(loadRepos(searchTerm));
 
