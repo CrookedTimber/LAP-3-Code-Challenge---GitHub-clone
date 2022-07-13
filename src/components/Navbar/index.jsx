@@ -6,7 +6,7 @@ function Navbar() {
   // const navigate = useNavigate();
 
   return (
-    <nav>
+    <nav className='navbar'>
       <h1
       // to="/"
       >
