@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 
-export default function UsernameForm() {
-  return (
-    <div>
-    <form>
-      <label for="username">Username</label>
-      <br />
-      <input type="text" id="username" name="username" />
-      <br />
-      <button type="submit">Submit</button>
-    </form>
-    </div>
-  );
-}
+
+const UserNameForm = ({ fetchUser, setRepo }) => {
+    const [ userName, setUsername ] = useState('')
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        setUsername(e.target.username.value)
+        fetchUser(e.target.username.value)
+    }
+
+    useEffect( ()=> {
+        setRepo("")
+    }, [ userName, setRepo ])
+
+    return(
+        <form onSubmit={ e => handleSubmit(e) }>
+            <input required type="text" name="username" placeholder="Username"></input>
+            <input type="submit"></input>
+        </form>
+    );
+};
+
+export default UserNameForm;
