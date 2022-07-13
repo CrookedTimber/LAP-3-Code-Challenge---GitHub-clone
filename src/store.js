@@ -3,7 +3,7 @@ import repoReducer from './reducers/repoReducer';
 
 const store = configureStore( {
     reducer: {
-        repos: repoReducer
+        repos: repoReducer,
     },
 })
 

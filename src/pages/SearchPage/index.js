@@ -6,7 +6,7 @@ import "./index.css";
 const SearchPage = () => {
     const [ inputValue, setInputValue ] = useState("");
     const [ submitValue, setSubmitValue ] = useState("");
-    const [ setUserData ] = useState=([]);
+    const [ userData, setUserData ] = useState=([]);
     
     useEffect(() => {
         async function fetchUserData() {

@@ -1,26 +1,29 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const SelectedRepo = ({ repo }) => {
+
+const SelectedRepo = ({repo}) => {
     const [ percentages , setPercentages ] = useState([]);
     const [ stargazers, setStargazers ] = useState();
-    let [ forks, setForks ] = useState([]);
-    const [ repoData, setRepoData ] = useState({});
+    const [ setForks ] = useState([]);
+    const [ repoData, setRepoData ] = useState([]);
 
-    useEffect( () => {
-        async function getRepoData() {
+    useEffect(() => {
+        async function fetchRepoData() {
             try {
-                const result = await axios.get('https://api.github.com/users/{username}/repo/:id', {
-                    repoName: 'REPONAME'
+                const result = await axios.get('https://api.github.com/repos/{owner}/{repo}', {
+                    owner: 'OWNER',
+                    repo: 'REPO'
                 })
                 setRepoData(result.data);
             } catch(err) {
                 console.log(err);
             }
-         }
-         getRepoData(repoData);
-        }, [ repoData, setRepoData ]);
+        }
 
+        fetchRepoData(repoData);
+    }, [repoData, setRepoData])
+    
         const options = {
             method: 'GET',
             headers: { "Content-Type": "application/json"}
@@ -38,7 +41,7 @@ const SelectedRepo = ({ repo }) => {
 
         setStargazers(repo.stargazers)
 
-        forks = fetch(repo.forks, options);
+        const forks = fetch(repo.forks, options);
         const forksJSON = forks.json()
         if(Object.keys(forksJSON).length === 0 ){
             setForks(["No forks to display"])
@@ -86,6 +89,6 @@ const SelectedRepo = ({ repo }) => {
             </div>
         </div>
     );
-};
-
+}
+   
 export default SelectedRepo; 
