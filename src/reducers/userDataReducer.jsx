@@ -3,6 +3,7 @@ const initState = {
   profileData: {},
   showProfile: false,
   isSingleRepo: false,
+  userExists: true,
 };
 
 const userDataReducer = (state = initState, action) => {
@@ -14,9 +15,11 @@ const userDataReducer = (state = initState, action) => {
         showProfile: !state.showProfile,
       };
     case 'REPOS_DATA':
-      return { ...state, repoData: action.payload, isSingleRepo: false };
+      return { ...state, repoData: action.payload, isSingleRepo: false, userExists: true };
     case 'SINGLE_REPO':
       return { ...state, repoData: action.payload, isSingleRepo: true };
+    case 'ERROR404':
+      return { ...state, userExists: false };
     case 'RESET_USER':
       return initState;
     default:

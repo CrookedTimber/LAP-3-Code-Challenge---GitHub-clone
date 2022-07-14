@@ -1,4 +1,5 @@
 import { UsernameForm, UserCard, Welcome, ReposList } from '../../components';
+import NotFound from '../NotFound';
 
 import { useSelector } from 'react-redux';
 
@@ -8,18 +9,16 @@ const IndexPage = () => {
   const profileData = useSelector((state) => state.profileData);
   const show = useSelector((state) => state.showProfile);
   const repoData = useSelector((state) => state.repoData);
-
-  console.log(profileData.login, profileData.avatar_url, repoData.data, show);
+  const userExists = useSelector((state) => state.userExists);
 
   return (
     <>
       <div className="flex-container">
         <h4>Enter a GitHub Username below to display public repositories:</h4>
-        {!show && (
-          <>
-            <UsernameForm /> <Welcome />{' '}
-          </>
-        )}
+        
+        {!show && <UsernameForm />}
+        {!show && userExists && <Welcome />}
+        {!userExists && <NotFound />}
         {show && (
           <>
             <UserCard
@@ -29,6 +28,7 @@ const IndexPage = () => {
             <ReposList data={repoData} />
           </>
         )}
+        
       </div>
     </>
   );
