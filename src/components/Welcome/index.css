@@ -1,0 +1,14 @@
+.welcome-container {
+    width: 90%;
+    padding: 5px 20px;
+    text-align: center;
+    display: block;
+    transition: 0.5s ease;
+    margin: auto;
+}
+
+.welcome-container > h1, h2 {
+    color: rgb(74, 112, 124);
+    font-family: sans-serif;
+}
+

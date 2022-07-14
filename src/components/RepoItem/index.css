@@ -1,0 +1,49 @@
+.repo-cards {
+    border: 2px solid lightblue;
+    padding: 10px;
+    background-color: aliceblue;
+    margin: 10px 0;
+    box-shadow: 3px 2px 4px rgb(147, 184, 197);
+    transition: 0.5s ease;
+}
+
+.repo-cards:hover {
+    transform: scale(1.01);
+    transition: 0.5s ease;
+    background-color: rgb(218, 236, 252);
+}
+
+.repo-link {
+    cursor: pointer;
+}
+
+.repo-link:hover {
+    color: rgb(98, 189, 219);
+}
+
+.repo-description {
+    padding: 10px;
+    font-style: italic;
+}
+
+.repo-icon {
+    transform: scale(2);
+    background-color:rgb(160, 216, 235);
+    width: fit-content;
+    padding: 5px;
+    border-radius: 50%;
+    margin: auto;
+    box-shadow: 2px 2px 4px rgb(147, 184, 197);
+}
+
+.repo-created, .repo-last-update {
+    letter-spacing: 2px;
+}
+
+.repo-github-link {
+    text-decoration: none;
+}
+
+.repo-github-link:hover {
+    color:rgb(98, 189, 219);
+}

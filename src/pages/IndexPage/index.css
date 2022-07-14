@@ -1,0 +1,8 @@
+.flex-container {
+    width: 90%;
+    background-color: aliceblue;
+    padding: 20px;
+    box-shadow: 3px 2px 4px rgb(147, 184, 197);
+    margin: 10px auto;
+}
+
