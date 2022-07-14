@@ -14,10 +14,10 @@ const IndexPage = () => {
   return (
     <>
       <div className="flex-container">
-        <h4>Enter a GitHub Username below to display public repositories:</h4>
+        
         {!show && (
           <>
-            <UsernameForm /> <Welcome />{' '}
+            <Welcome /> <UsernameForm /> {' '}
           </>
         )}
         {show && (

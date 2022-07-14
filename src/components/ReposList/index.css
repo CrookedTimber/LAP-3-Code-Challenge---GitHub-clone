@@ -1,0 +1,15 @@
+.repo-card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid lightblue;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 3px 2px 4px rgb(147, 184, 197);
+}
+
+.card-header {
+    color: rgb(76, 134, 153);
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 20px;
+}

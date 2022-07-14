@@ -45,7 +45,7 @@ export default function UsernameForm() {
           value={input}
         />
         <br />
-        <Button className="search-form-btn" type="submit">Get user repos</Button>
+        <Button className="search-form-btn" type="submit">Get User Repos!</Button>
       </form>
     </div>
   );

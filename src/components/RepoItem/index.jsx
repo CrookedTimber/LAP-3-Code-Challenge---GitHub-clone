@@ -8,6 +8,7 @@ import {
   faHtml5,
   faPython, faPhp
 } from '@fortawesome/free-brands-svg-icons';
+import "./index.css";
 
 export default function RepoItem(props) {
   const isSingleRepo = useSelector((state) => state.isSingleRepo);
@@ -64,23 +65,25 @@ export default function RepoItem(props) {
   };
 
   return (
-    <div>
-      <h2 onClick={handleSingleRepoClick} apiurl={props.data.url}>
+    <div className="repo-cards">
+      <h2 className="repo-link" onClick={handleSingleRepoClick} apiurl={props.data.url}>
         {props.data.name}
       </h2>
 
-      {isSingleRepo && <a href={props.data.html_url}>Visit on GitHub</a>}
+      {isSingleRepo && <a className="repo-github-link" href={props.data.html_url}>Visit on GitHub</a>}
       {isSingleRepo && props.data.fork && (
         <p>
           Forked from
           <a href={props.data.parent.html_url}>{props.data.parent.full_name}</a>
         </p>
       )}
-      <p>{props.data.description}</p>
-      <p>{iconSwitch(props.data.language)}</p>
+      <p className="repo-description">{props.data.description}</p>
+      <p className="repo-icon">{iconSwitch(props.data.language)}</p>
       {isSingleRepo && <p>{`Stargazers: ${props.data.stargazers_count}`}</p>}
-      <p>{`Creation: ${dateFormat(props.data.created_at)}`}</p>
-      <p>{`Last update: ${dateFormat(props.data.updated_at)}`}</p>
+      <br />
+      <hr />
+      <p className="repo-created">{`Creation: ${dateFormat(props.data.created_at)}`}</p>
+      <p className="repo-last-update">{`Last update: ${dateFormat(props.data.updated_at)}`}</p>
     </div>
   );
 }

@@ -4,6 +4,7 @@
     padding: 25px;
     display: flex;
     justify-content: flex-start;
+    box-shadow: 3px 2px 4px rgb(147, 184, 197);
 }
 
 .navbar > h1 {
@@ -14,4 +15,5 @@
     height: 80px;
     width: 80px;
     border-radius: 50%;
+    box-shadow: 3px 2px 4px rgb(147, 184, 197);
 }

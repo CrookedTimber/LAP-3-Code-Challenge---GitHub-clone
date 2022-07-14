@@ -29,8 +29,13 @@ form > input {
     cursor: pointer;
     border-radius: 10px;
     border: none;
+    font-weight: bold;
+    box-shadow: 3px 2px 4px rgb(147, 184, 197);
+    transition: 0.5s ease;
 }
 
 .search-form-btn:hover {
     background-color: rgb(102, 203, 236);
+    transform: scale(1.05);
+    transition: 0.5s ease;
 }
