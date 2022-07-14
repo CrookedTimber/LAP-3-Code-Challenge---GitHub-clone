@@ -21,7 +21,7 @@ Go to the Netlify demo by following this link: https://lap-3-code-challenge-gith
 
 ## Requirements
 
-[X] Your app should make use of React
-[X] Your repo tracker should have an input for users to give their GitHub username
-[X] After submitting their username, use the GitHub API to retrieve that user's list of repos
+[X] Your app should make use of React  
+[X] Your repo tracker should have an input for users to give their GitHub username  
+[X] After submitting their username, use the GitHub API to retrieve that user's list of repos  
 [X] When selecting a repo, a User should be shown some data about that repo eg. issue count, stargazers, forks etc.
