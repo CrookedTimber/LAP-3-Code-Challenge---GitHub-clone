@@ -12,7 +12,6 @@ function App() {
   // const show = useSelector((state) => state.showProfile);
   // const repoData = useSelector((state) => state.repoData);
 
-  // console.log(profileData.login, profileData.avatar_url, repoData.data, show);
   
   return (
     <>

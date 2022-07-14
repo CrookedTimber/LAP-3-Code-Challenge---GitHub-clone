@@ -1,58 +1,39 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { profileDataSetter, reposDataSetter } from '../../actions';
 import axios from 'axios';
 
 export default function UsernameForm() {
   const dispatch = useDispatch();
+
   const [input, setInput] = useState('');
 
-//   const repoData = useSelector((state) => state.repoData);
-  const profileData = useSelector((state) => state.profileData);
-
-//   const repoDataSetter = (reposData) => {
-//     dispatch({ type: 'REPO_DATA', payload: reposData });
-//   };
-
-  const profileDataSetter = (userDetails) => {
-    dispatch({ type: 'PROFILE_DATA', payload: userDetails });
-  };
-
-  async function setUserData(query) {
+  const setUserData = async (query) => {
     try {
       const result = await axios.get(
         `https://api.github.com/users/${query}/repos`
       );
-    //   await repoDataSetter(result.data)
-      await profileDataSetter(result.data[0].owner);
-          
-    //   console.log('repoData: ' + JSON.stringify(repoData));
-      console.log('profileData: ' + JSON.stringify(profileData));
-    //   console.log(
-    //     profileData.login,
-    //     profileData.avatar_url,
-    //     profileData.showProfile
-    //   );  
-
-    //   console.log(repoData);
+      dispatch(reposDataSetter(result.data));
+      dispatch(profileDataSetter(result.data[0].owner));
     } catch (error) {
-      console.log(error);
+      console.warn(error.message);
     }
-  }
+  };
 
   function updateInput(e) {
     setInput(e.target.value);
   }
 
-  async function submitUsername(e) {
+  function submitUsername(e) {
     e.preventDefault();
-    await setUserData(input);
+    setUserData(input);
     setInput('');
   }
 
   return (
     <div>
       <form onSubmit={submitUsername}>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">GitHub Username</label>
         <br />
         <input
           onChange={updateInput}
@@ -62,7 +43,7 @@ export default function UsernameForm() {
           value={input}
         />
         <br />
-        <button type="submit">Find User!</button>
+        <button type="submit">Get user repos</button>
       </form>
     </div>
   );
