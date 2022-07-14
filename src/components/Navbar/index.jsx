@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <>
     <header>
-      <nav className="navbar">
+      <nav className="navbar shadow">
       <img className="header-img" src={github} alt="github logo"></img>
         <h1>Github Repo Tracker</h1>
       </nav>

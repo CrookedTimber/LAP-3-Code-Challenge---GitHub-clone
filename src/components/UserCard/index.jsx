@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { Button, Card } from "react-bootstrap";
 import { resetUser } from '../../actions';
 
 import './index.css';
@@ -11,10 +12,10 @@ export default function UserCard(props) {
   };
 
   return (
-    <div className="profile-container">
-      <img className="avatar" src={props.imageURL} alt={`${props.userName}`} />
-      <h1>{props.userName}</h1>
-      <button onClick={resetButton}>Try a different user!</button>
-    </div>
+    <Card className="profile-container">
+      <Card.Img className="avatar" src={props.imageURL} alt={`${props.userName}`} />
+      <Card.Header className="profile-header">{props.userName}</Card.Header>
+      <Button className="close-button shadow" onClick={resetButton}>Try a different user!</Button>
+    </Card>
   );
 }

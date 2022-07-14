@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { profileDataSetter, reposDataSetter } from '../../actions';
+import { Button } from "react-bootstrap";
 import axios from 'axios';
+import "./index.css";
 
 export default function UsernameForm() {
   const dispatch = useDispatch();
@@ -31,9 +33,9 @@ export default function UsernameForm() {
   }
 
   return (
-    <div>
-      <form onSubmit={submitUsername}>
-        <label htmlFor="username">GitHub Username</label>
+    <div className="form-container">
+      <form className="search-form" onSubmit={submitUsername}>
+        <label className="search-form-label" htmlFor="username">GitHub Username</label>
         <br />
         <input
           onChange={updateInput}
@@ -43,7 +45,7 @@ export default function UsernameForm() {
           value={input}
         />
         <br />
-        <button type="submit">Get user repos</button>
+        <Button className="search-form-btn" type="submit">Get user repos</Button>
       </form>
     </div>
   );
