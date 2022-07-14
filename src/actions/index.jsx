@@ -14,3 +14,5 @@ export const singleRepoSetter = (reposData) => ({
 });
 
 export const resetUser = () => ({ type: 'RESET_USER' });
+
+export const setError404 = () => ({ type: 'ERROR404' });

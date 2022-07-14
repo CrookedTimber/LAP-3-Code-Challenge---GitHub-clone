@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { profileDataSetter, reposDataSetter } from '../../actions';
 import { Button } from "react-bootstrap";
+import { profileDataSetter, reposDataSetter, setError404 } from '../../actions';
 import axios from 'axios';
 import "./index.css";
 
@@ -18,6 +18,7 @@ export default function UsernameForm() {
       dispatch(reposDataSetter(result.data));
       dispatch(profileDataSetter(result.data[0].owner));
     } catch (error) {
+      dispatch(setError404());
       console.warn(error.message);
     }
   };
