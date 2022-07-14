@@ -4,15 +4,14 @@ import axios from 'axios';
 
 export default function UsernameForm() {
   const dispatch = useDispatch();
-
   const [input, setInput] = useState('');
 
-  const repoData = useSelector((state) => state.repoData);
+//   const repoData = useSelector((state) => state.repoData);
   const profileData = useSelector((state) => state.profileData);
 
-  const repoDataSetter = (reposData) => {
-    dispatch({ type: 'REPO_DATA', payload: reposData });
-  };
+//   const repoDataSetter = (reposData) => {
+//     dispatch({ type: 'REPO_DATA', payload: reposData });
+//   };
 
   const profileDataSetter = (userDetails) => {
     dispatch({ type: 'PROFILE_DATA', payload: userDetails });
@@ -23,17 +22,18 @@ export default function UsernameForm() {
       const result = await axios.get(
         `https://api.github.com/users/${query}/repos`
       );
-      await repoDataSetter(result.data);
+    //   await repoDataSetter(result.data)
       await profileDataSetter(result.data[0].owner);
-      console.log('repoData: ' + JSON.stringify(repoData));
+          
+    //   console.log('repoData: ' + JSON.stringify(repoData));
       console.log('profileData: ' + JSON.stringify(profileData));
-      console.log(
-        profileData.login,
-        profileData.avatar_url,
-        profileData.showProfile
-      );
+    //   console.log(
+    //     profileData.login,
+    //     profileData.avatar_url,
+    //     profileData.showProfile
+    //   );  
 
-      console.log(repoData);
+    //   console.log(repoData);
     } catch (error) {
       console.log(error);
     }
@@ -62,7 +62,7 @@ export default function UsernameForm() {
           value={input}
         />
         <br />
-        <button type="submit">Get Repos!</button>
+        <button type="submit">Find User!</button>
       </form>
     </div>
   );

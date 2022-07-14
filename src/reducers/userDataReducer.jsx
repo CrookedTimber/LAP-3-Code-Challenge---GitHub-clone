@@ -1,5 +1,5 @@
 const initState = {
-  repoData: { repos: [{repoName: "Name ", link: "Link ", languages: "Languages ", stargazers: "Stargazers ", forks: "Forks ", updated: "Last Updated"}], error: ""},
+  repoData: {},
   profileData: {},
   showProfile: false,
 };

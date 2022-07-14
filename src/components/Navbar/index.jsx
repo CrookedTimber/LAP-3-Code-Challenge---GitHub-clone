@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import github from "../../assets/github-icon.jpg";
 
 import './style.css';
 
@@ -8,11 +8,10 @@ function Navbar() {
 
   return (
     <>
-    <header className="header">
+    <header>
       <nav className="navbar">
-        <NavLink to="/">Home</NavLink>
-      
-        <NavLink to="/repos">Repos</NavLink>
+      <img className="header-img" src={github} alt="github logo"></img>
+        <h1>Github Repo Tracker</h1>
       </nav>
     </header>
     </>

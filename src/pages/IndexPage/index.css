@@ -1,0 +1,12 @@
+.flex-container {
+    width: 100%;
+    background-color: aliceblue;
+    padding: 20px;
+}
+
+.flex-container > h1, h4 {
+    color: darkgray;
+    font-family: monospace;
+    text-align: center;
+}
+

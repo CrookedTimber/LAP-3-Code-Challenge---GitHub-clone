@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import UserNameForm from '../../components/UsernameForm';
-import { SelectedRepo, RepoPage } from "../index";
-import { loadRepos } from '../../actions'
+import UsernameForm from '../../components/UsernameForm';
+import UserCard from '../../components/UserCard';
+import { useSelector } from 'react-redux';
+
+import "./index.css";
 
 const IndexPage = () => {
-    const allRepos = useSelector(state=>state.repos);
-    const error = useSelector(state=>state.error);
-    const [ ownerRepo, setOwnerRepo ] = useState([]);
-    const dispatch = useDispatch();
-    const search = searchTerm => dispatch(loadRepos(searchTerm));
+    const profileData = useSelector((state) => state.profileData);
+    const show = useSelector((state) => state.showProfile);
+    const repoData = useSelector((state) => state.repoData);
+  
+    console.log(profileData.login, profileData.avatar_url, repoData.data, show);
 
     return(
         <>
@@ -17,11 +17,17 @@ const IndexPage = () => {
                                 
             <h1> Welcome to your GitHub Repo Tracker</h1>
            
-        </div>
+        
         <h4>Enter a GitHub Username below to display public repositories:</h4>
-        <UserNameForm loadRepos={search} setOwnerRepo={setOwnerRepo}/>
-        { ownerRepo && !error ? <SelectedRepo ownerRepo={ownerRepo} error={error}/> : <></>}
-        <RepoPage allRepos={allRepos} error={error} handleRepo={setOwnerRepo}/>
+        {!show && <UsernameForm />}
+      {show && (
+        <UserCard
+          userName={profileData.login}
+          imageURL={profileData.avatar_url}
+          repos={profileData.repoData}
+        />
+      )}
+      </div>
         </>
     )
 };
